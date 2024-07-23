@@ -13,7 +13,7 @@ public class MemberWriterService {
     final private MemberRepository memberRepository;
 
 
-    public Member create(RegisterMemberCommand command) {
+    public Member register(RegisterMemberCommand command) {
         /*
          * 회원정보 등록 (email, nickname, birthday) 등록
          */
