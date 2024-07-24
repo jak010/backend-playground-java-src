@@ -32,14 +32,14 @@ public class Member {
 
         validateNickname(nickname);
         this.nickname = Objects.requireNonNull(nickname);
-
         this.createdAt = createdAt == null ? LocalDateTime.now() : createdAt;
     }
 
-    public void changeNickName(String other) {
-        Objects.requireNonNull(other);
-        validateNickname(other);
-        nickname = other;
+    public void changeNickName(String to) {
+        Objects.requireNonNull(to);
+        validateNickname(to);
+        nickname = to;
+        this.nickname = to;
     }
 
     public void validateNickname(String nickname) {

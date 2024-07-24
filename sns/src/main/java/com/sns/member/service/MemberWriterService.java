@@ -2,6 +2,8 @@ package com.sns.member.service;
 
 import com.sns.member.dto.RegisterMemberCommand;
 import com.sns.member.entity.Member;
+import com.sns.member.entity.MemberNickNameHistory;
+import com.sns.member.repository.MemberNickNameHistoryRepository;
 import com.sns.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,9 +13,10 @@ import org.springframework.stereotype.Service;
 public class MemberWriterService {
 
     final private MemberRepository memberRepository;
+    final private MemberNickNameHistoryRepository memberNickNameHistoryRepository;
 
 
-    public Member register(RegisterMemberCommand command) {
+    public Member create(RegisterMemberCommand command) {
         /*
          * 회원정보 등록 (email, nickname, birthday) 등록
          */
@@ -22,7 +25,30 @@ public class MemberWriterService {
                 .email(command.email())
                 .birthday(command.birthday())
                 .build();
-        return memberRepository.save(member);
+        var savedMember =  memberRepository.save(member);
+        saveMemberNickNameHistory(savedMember);
+        return savedMember;
     }
+
+    public void chagneNickname(Long memberId, String nickname) {
+        var member = memberRepository.findById(memberId).orElseThrow();
+        member.changeNickName(nickname);
+
+        memberRepository.save(member);
+
+        saveMemberNickNameHistory(member);
+
+        /* Member 변경내역을 저장한다. */
+    }
+
+    private void saveMemberNickNameHistory(Member member) {
+        var history = MemberNickNameHistory.builder()
+                .memberId(member.getId())
+                .nickname(member.getNickname())
+                .build();
+
+        memberNickNameHistoryRepository.save(history);
+    }
+
 
 }
