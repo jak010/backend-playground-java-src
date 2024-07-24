@@ -7,5 +7,5 @@
 - Java - Record
 - Command Object
 - Dto
-
+- EasyRandom (testImplementation)
 
