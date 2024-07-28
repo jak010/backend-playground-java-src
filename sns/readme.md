@@ -8,6 +8,9 @@
 - Command Object
 - Dto
 - EasyRandom (testImplementation)
+- UseCase Layer
+- Service Layer & Read/Write Seperate
+-
 
 # Reference
 
