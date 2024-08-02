@@ -1,10 +1,10 @@
-package com.sns.member.service;
+package com.sns.domain.member.service;
 
-import com.sns.member.dto.RegisterMemberCommand;
-import com.sns.member.entity.Member;
-import com.sns.member.entity.MemberNickNameHistory;
-import com.sns.member.repository.MemberNickNameHistoryRepository;
-import com.sns.member.repository.MemberRepository;
+import com.sns.domain.member.repository.MemberRepository;
+import com.sns.domain.member.dto.RegisterMemberCommand;
+import com.sns.domain.member.entity.Member;
+import com.sns.domain.member.entity.MemberNickNameHistory;
+import com.sns.domain.member.repository.MemberNickNameHistoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

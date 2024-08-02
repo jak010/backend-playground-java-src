@@ -1,15 +1,9 @@
 package com.sns.domain.member;
 
-import com.sns.member.entity.Member;
 import com.sns.util.MemberFixtureFactory;
-import org.jeasy.random.EasyRandom;
-import org.jeasy.random.EasyRandomParameters;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.util.stream.IntStream;
-import java.util.stream.LongStream;
 
 
 public class MemberTest {

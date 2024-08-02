@@ -1,4 +1,4 @@
-package com.sns.member.dto;
+package com.sns.domain.member.dto;
 
 import java.time.LocalDate;
 

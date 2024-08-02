@@ -1,13 +1,11 @@
-package com.sns.follow.service;
+package com.sns.domain.follow.service;
 
-import com.sns.follow.entity.Follow;
-import com.sns.follow.repository.FollowRepository;
-import com.sns.member.dto.MemberDto;
+import com.sns.domain.follow.repository.FollowRepository;
+import com.sns.domain.follow.entity.Follow;
+import com.sns.domain.member.dto.MemberDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
-
-import java.util.Objects;
 
 @RequiredArgsConstructor
 @Service

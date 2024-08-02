@@ -1,9 +1,9 @@
 package com.sns.application.usecase;
 
-import com.sns.follow.entity.Follow;
-import com.sns.follow.service.FollowReadService;
-import com.sns.member.dto.MemberDto;
-import com.sns.member.service.MemberReadService;
+import com.sns.domain.follow.entity.Follow;
+import com.sns.domain.follow.service.FollowReadService;
+import com.sns.domain.member.dto.MemberDto;
+import com.sns.domain.member.service.MemberReadService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

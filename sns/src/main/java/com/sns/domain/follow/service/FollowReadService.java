@@ -1,7 +1,7 @@
-package com.sns.follow.service;
+package com.sns.domain.follow.service;
 
-import com.sns.follow.entity.Follow;
-import com.sns.follow.repository.FollowRepository;
+import com.sns.domain.follow.entity.Follow;
+import com.sns.domain.follow.repository.FollowRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

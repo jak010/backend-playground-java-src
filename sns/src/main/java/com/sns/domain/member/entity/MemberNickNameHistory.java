@@ -1,4 +1,4 @@
-package com.sns.member.entity;
+package com.sns.domain.member.entity;
 
 import lombok.Builder;
 import lombok.Getter;

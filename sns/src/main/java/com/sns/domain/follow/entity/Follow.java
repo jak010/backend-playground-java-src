@@ -1,4 +1,4 @@
-package com.sns.follow.entity;
+package com.sns.domain.follow.entity;
 
 import lombok.Builder;
 import lombok.Getter;

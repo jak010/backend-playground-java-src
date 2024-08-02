@@ -1,7 +1,7 @@
 package com.sns.application.usecase;
 
-import com.sns.follow.service.FollowWriteService;
-import com.sns.member.service.MemberReadService;
+import com.sns.domain.follow.service.FollowWriteService;
+import com.sns.domain.member.service.MemberReadService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
 package com.sns.util;
 
-import com.sns.member.entity.Member;
+import com.sns.domain.member.entity.Member;
 import org.jeasy.random.EasyRandom;
 import org.jeasy.random.EasyRandomParameters;
 

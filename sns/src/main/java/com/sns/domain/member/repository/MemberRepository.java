@@ -1,6 +1,6 @@
-package com.sns.member.repository;
+package com.sns.domain.member.repository;
 
-import com.sns.member.entity.Member;
+import com.sns.domain.member.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;

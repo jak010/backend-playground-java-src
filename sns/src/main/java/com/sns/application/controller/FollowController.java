@@ -2,9 +2,8 @@ package com.sns.application.controller;
 
 import com.sns.application.usecase.CreateFolllowMemberUsecase;
 import com.sns.application.usecase.GetFollowingMemberUsecase;
-import com.sns.member.dto.MemberDto;
+import com.sns.domain.member.dto.MemberDto;
 import lombok.RequiredArgsConstructor;
-import org.aspectj.weaver.GeneratedReferenceTypeDelegate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

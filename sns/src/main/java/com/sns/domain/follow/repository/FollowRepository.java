@@ -1,6 +1,6 @@
-package com.sns.follow.repository;
+package com.sns.domain.follow.repository;
 
-import com.sns.follow.entity.Follow;
+import com.sns.domain.follow.entity.Follow;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;

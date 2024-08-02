@@ -1,10 +1,10 @@
 package com.sns.application.controller;
 
-import com.sns.member.dto.MemberDto;
-import com.sns.member.dto.MemberNickNameHistoryDto;
-import com.sns.member.dto.RegisterMemberCommand;
-import com.sns.member.service.MemberReadService;
-import com.sns.member.service.MemberWriterService;
+import com.sns.domain.member.dto.MemberDto;
+import com.sns.domain.member.dto.MemberNickNameHistoryDto;
+import com.sns.domain.member.dto.RegisterMemberCommand;
+import com.sns.domain.member.service.MemberReadService;
+import com.sns.domain.member.service.MemberWriterService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

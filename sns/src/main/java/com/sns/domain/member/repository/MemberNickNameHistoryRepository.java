@@ -1,8 +1,6 @@
-package com.sns.member.repository;
+package com.sns.domain.member.repository;
 
-import com.sns.member.entity.Member;
-import com.sns.member.entity.MemberNickNameHistory;
-import jakarta.persistence.Table;
+import com.sns.domain.member.entity.MemberNickNameHistory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
@@ -13,10 +11,8 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Repository
