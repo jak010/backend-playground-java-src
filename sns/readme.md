@@ -11,6 +11,9 @@
 - UseCase Layer
 - Service Layer & Read/Write Seperate
 - Bulk Insert
+- Paginateion - Offset Based
+- PageAble
+- PageRequest
 
 # Reference
 
@@ -29,3 +32,6 @@
     FROM POST use index(POST__index_created_date)
     WHERE memberId=3 and createdDate BETWEEN '1900-01-01' AND '2025-01-01' GROUP BY memberId, createdDate ;
     ```
+- `Parameter로 Sort를 받지 않음`
+  - Sort 같은 경우 INDEX와 관련이 있기 때문에 보통 Sort를 Parameter로 받지 않는다.
+  - Sort 를 Parameter로 받아서 처리할 경우 다른 DB와 함께 사용함
