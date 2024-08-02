@@ -4,8 +4,11 @@ import com.sns.domain.post.dto.DailyPostCount;
 import com.sns.domain.post.dto.DailyPostCountRequest;
 import com.sns.domain.post.entity.Post;
 import com.sns.domain.post.repository.PostRepository;
+import com.sns.util.CursorRequest;
+import com.sns.util.PageCursor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -33,4 +36,19 @@ public class PostReadService {
 
     }
 
+    public PageCursor<Post> getPosts(Long memberId, CursorRequest cursorRequest) {
+        var posts = findAllBy(memberId, cursorRequest);
+        var next_key = posts.stream()
+                .mapToLong(Post::getId)
+                .min()
+                .orElse(CursorRequest.NONE_KEY);
+        return new PageCursor<>(cursorRequest.next(next_key), posts);
+    }
+
+    private List<Post> findAllBy(Long memberId, CursorRequest cursorRequest) {
+        if (cursorRequest.hasKey()) {
+            return postRepository.findAllByLessThanAndMemberIdAndOrderByIdDesc(cursorRequest.key(), memberId, cursorRequest.size());
+        }
+        return postRepository.findAllByMemberIdAndOrderByIdDesc(memberId, cursorRequest.size());
+    }
 }
