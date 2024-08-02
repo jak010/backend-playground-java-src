@@ -10,7 +10,7 @@
 - EasyRandom (testImplementation)
 - UseCase Layer
 - Service Layer & Read/Write Seperate
--
+- Bulk Insert
 
 # Reference
 
