@@ -1,6 +1,5 @@
 package com.sns.domain.post;
 
-import com.sns.domain.post.dto.DailyPostCountRequest;
 import com.sns.domain.post.entity.Post;
 import com.sns.domain.post.repository.PostRepository;
 import com.sns.util.PostFixtureFactory;
@@ -12,6 +11,8 @@ import org.springframework.util.StopWatch;
 import java.time.LocalDate;
 import java.util.stream.IntStream;
 
+// @SpringBootTest Annotation과 함께 `@Transactional` Annotation을 붙이면 rollback이 된다.
+// @Transactional
 @SpringBootTest
 public class PostBulkInsertTest {
 
@@ -28,7 +29,7 @@ public class PostBulkInsertTest {
         var stopWatch = new StopWatch();
         stopWatch.start();
 
-        var posts = IntStream.range(0, 10000 * 100)
+        var posts = IntStream.range(0, 20000 * 100)
                 .parallel()
                 .mapToObj(i -> easyRandom.nextObject(Post.class))
                 .toList();
@@ -44,6 +45,4 @@ public class PostBulkInsertTest {
         System.out.println("DB INSERT 시간" + queryStopWatch.getTotalTimeSeconds());
 
     }
-
-
 }
