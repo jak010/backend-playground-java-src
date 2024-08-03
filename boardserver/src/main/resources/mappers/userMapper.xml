@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.board.boardserver.mapper.UserProfileMapper">
+
+    <select id="getUserProfile" resultType="com.board.boardserver.dto.UserDto">
+        SELECT
+        id,
+        userID,
+        userPassword,
+        nickName,
+        isAdmin,
+        createTime,
+        status
+        FROM
+        user_profile
+        WHERE
+        id = #{id}
+    </select>
+
+    <insert id="insertUserProfile" parameterType="com.board.boardserver.dto.UserDto">
+        INSERT INTO user_profile (userID, userPassword, nickName, isAdmin, createTime, status)
+        VALUES (#{userID}, #{userPassword}, #{nickName}, #{isAdmin}, #{createTime}, #{status})
+    </insert>
+
+    <insert id="register" parameterType="com.board.boardserver.dto.UserDto">
+        INSERT INTO user_profile (userID, userPassword, nickName, isAdmin, createTime, status)
+        VALUES (#{userID}, #{userPassword}, #{nickName}, #{isAdmin}, #{createTime}, #{status})
+    </insert>
+
+    <update id="updateUserProfile" parameterType="com.board.boardserver.dto.UserDto">
+        UPDATE user_profile
+        SET
+        userID = #{userID},
+        userPassword = #{userPassword},
+        nickName = #{nickName},
+        isAdmin = #{isAdmin},
+        createTime = #{createTime},
+        status = #{status}
+        WHERE
+        id = #{id}
+    </update>
+
+    <delete id="deleteUserProfile">
+        DELETE FROM user_profile
+        WHERE id = #{id}
+    </delete>
+
+    <select id="findByIdAndPassword" resultType="com.board.boardserver.dto.UserDto">
+        SELECT
+        id,
+        userID,
+        userPassword,
+        nickName,
+        isAdmin,
+        createTime,
+        status
+        FROM
+        user_profile
+        WHERE
+        userID = #{userID} AND userPassword = #{userPassword}
+    </select>
+
+    <select id="idCheck" resultType="int">
+        SELECT COUNT(*)
+        FROM user_profile
+        WHERE userID = #{userID}
+    </select>
+
+
+
+    <update id="updatePassword" parameterType="com.board.boardserver.dto.UserDto">
+        UPDATE user_profile
+        SET
+        userPassword = #{userPassword}
+        WHERE
+        userID = #{userID}
+    </update>
+
+
+
+</mapper>
