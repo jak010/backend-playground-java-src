@@ -4,5 +4,5 @@ import java.util.List;
 
 public record PageCursor<T>(
         CursorRequest nextCursorRequest,
-        List<T> Body
+        List<T> body
 ) {}

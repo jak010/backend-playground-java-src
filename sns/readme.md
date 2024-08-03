@@ -14,6 +14,7 @@
 - Paginateion - Offset Based
 - PageAble
 - PageRequest
+- FanOut Model - Push&Pull
 
 # Reference
 
