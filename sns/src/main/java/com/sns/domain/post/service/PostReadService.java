@@ -2,7 +2,9 @@ package com.sns.domain.post.service;
 
 import com.sns.domain.post.dto.DailyPostCount;
 import com.sns.domain.post.dto.DailyPostCountRequest;
+import com.sns.domain.post.dto.PostDto;
 import com.sns.domain.post.entity.Post;
+import com.sns.domain.post.repository.PostLikeRepository;
 import com.sns.domain.post.repository.PostRepository;
 import com.sns.util.CursorRequest;
 import com.sns.util.PageCursor;
@@ -21,6 +23,7 @@ import java.util.List;
 public class PostReadService {
 
     final private PostRepository postRepository;
+    final private PostLikeRepository postLikeRepository;
 
     public List<DailyPostCount> getDailyPostCount(DailyPostCountRequest request) {
         /*
@@ -31,9 +34,22 @@ public class PostReadService {
 
     }
 
-    public Page<Post> getPosts(Long memberId, Pageable pageRequest) {
-        return postRepository.findAllByMemberId(memberId, pageRequest);
+    public Page<PostDto> getPostDtos(Long memberId, Pageable pageRequest) {
+        return postRepository.findAllByMemberId(memberId, pageRequest).map(this::toDto);
+    }
 
+    private PostDto toDto(Post post) {
+        return new PostDto(
+                post.getId(),
+                post.getContents(),
+                post.getCreatedAt(),
+                postLikeRepository.count(post.getId())
+        );
+
+    }
+
+    public Post getPost(Long postId) {
+        return postRepository.findById(postId, false).orElseThrow();
     }
 
     public PageCursor<Post> getPosts(Long memberId, CursorRequest cursorRequest) {

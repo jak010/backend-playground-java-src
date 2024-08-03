@@ -65,3 +65,10 @@ create table Timeline
         primary key (id)
 );
 
+CREATE TABLE `PostLike` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `memberId` int(11) NOT NULL,
+  `postId` int(11) NOT NULL,
+  `createdAt` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8

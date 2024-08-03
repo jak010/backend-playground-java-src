@@ -1,10 +1,12 @@
 package com.sns.application.controller;
 
+import com.sns.application.usecase.CreatePostLikeUsecase;
 import com.sns.application.usecase.CreatePostUsecase;
 import com.sns.application.usecase.GetTimeLinePostUsecase;
 import com.sns.domain.post.dto.DailyPostCount;
 import com.sns.domain.post.dto.DailyPostCountRequest;
 import com.sns.domain.post.dto.PostCommand;
+import com.sns.domain.post.dto.PostDto;
 import com.sns.domain.post.entity.Post;
 import com.sns.domain.post.service.PostReadService;
 import com.sns.domain.post.service.PostWriteService;
@@ -26,8 +28,9 @@ public class PostController {
     final private PostWriteService postWriteService;
     final private PostReadService postReadService;
     final private GetTimeLinePostUsecase getTimeLinePostUsecase;
-
     final private CreatePostUsecase createPostUsecase;
+
+    final private CreatePostLikeUsecase createPostLikeUsecase;
 
 
     @PostMapping("")
@@ -41,11 +44,12 @@ public class PostController {
     }
 
     @GetMapping("/members/{memberId}")
-    public Page<Post> getPosts(
+    public Page<PostDto> getPosts(
             @PathVariable("memberId") Long memberId,
-            Pageable pageRequest
+            @RequestParam("page") Integer page,
+            @RequestParam("size") Integer size
     ) {
-        return postReadService.getPosts(memberId, pageRequest);
+        return postReadService.getPostDtos(memberId, PageRequest.of(page, size));
     }
 
     @GetMapping("/members/{memberId}/by-cursor")
@@ -65,12 +69,21 @@ public class PostController {
         return getTimeLinePostUsecase.executeByTimeLine(memberId, cursorRequest);
     }
 
-    @PostMapping("/{postId}/like")
+    @PostMapping("/{postId}/like/v1")
     public void likPost(
             @PathVariable("postId") Long postId
     ) {
         postWriteService.likePost(postId);
     }
+
+    @PostMapping("/{postId}/like/v2")
+    public void likPostV2(
+            @PathVariable("postId") Long postId,
+            @RequestParam("memberId") Long memberId
+    ) {
+        createPostLikeUsecase.execute(postId, memberId);
+    }
+
 
     @PostMapping("/{postId}/like/optimistic-lock")
     public void likPostByOptimistic(
