@@ -15,6 +15,7 @@
 - PageAble
 - PageRequest
 - FanOut Model - Push&Pull
+- Lock (Pessimistic Lock)
 
 # Reference
 
