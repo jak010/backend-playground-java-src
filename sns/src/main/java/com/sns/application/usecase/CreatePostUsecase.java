@@ -16,6 +16,8 @@ public class CreatePostUsecase {
     final private FollowReadService followReadService;
     final private TimeLineWriteService timeLineWriteService;
 
+    // xxx: Transaction이 걸지는 고민해볼 문제임
+    // xxx: Transaction 범위는 짧게 걸어주는게 좋음
     public Long execute(PostCommand postCommand) {
         var postId = postWriteService.create(postCommand);
         var followMemberIds = followReadService

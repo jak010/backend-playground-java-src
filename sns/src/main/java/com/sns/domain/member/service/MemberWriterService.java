@@ -7,6 +7,7 @@ import com.sns.domain.member.entity.MemberNickNameHistory;
 import com.sns.domain.member.repository.MemberNickNameHistoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
@@ -16,6 +17,8 @@ public class MemberWriterService {
     final private MemberNickNameHistoryRepository memberNickNameHistoryRepository;
 
 
+    // inner 함수 호출 시 Transaction이 걸리지 않음 (Proxy Pattern)
+    @Transactional
     public Member create(RegisterMemberCommand command) {
         /*
          * 회원정보 등록 (email, nickname, birthday) 등록
@@ -25,7 +28,7 @@ public class MemberWriterService {
                 .email(command.email())
                 .birthday(command.birthday())
                 .build();
-        var savedMember =  memberRepository.save(member);
+        var savedMember = memberRepository.save(member);
         saveMemberNickNameHistory(savedMember);
         return savedMember;
     }
