@@ -35,6 +35,7 @@ public class PostRepository {
             .contents(resultSet.getString("contents"))
             .createdDate(resultSet.getObject("createdDate", LocalDate.class))
             .likeCount(resultSet.getLong("likeCount"))
+            .version(resultSet.getLong("version"))
             .createdAt(resultSet.getObject("createdAt", LocalDateTime.class))
             .build();
 
@@ -81,6 +82,9 @@ public class PostRepository {
                 .build();
     }
 
+    /**
+     *  Example: Optimistic Locking Example SQL
+     */
     private Post update(Post post) {
         var sql = String.format("""
                 UPDATE %s SET
@@ -88,11 +92,17 @@ public class PostRepository {
                  contents = :contents,
                  createdDate = :createdDate,
                  likeCount = :likeCount,
-                 createdAt = :createdAt
-                 WHERE id = :id
+                 createdAt = :createdAt,
+                 version = :version +1
+                 WHERE id = :id  and version = :version                
                 """, TABLE);
         SqlParameterSource params = new BeanPropertySqlParameterSource(post);
-        namedParameterJdbcTemplate.update(sql, params);
+        var updatedCount = namedParameterJdbcTemplate.update(sql, params);
+
+        if (updatedCount == 0) {
+            throw new RuntimeException("갱신실패");
+        }
+
         return post;
     }
 

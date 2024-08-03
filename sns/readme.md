@@ -6,7 +6,7 @@
 - SpringBoot 3.x.x - SwaggerConfigure
 - Java - Record
 - Command Object
-- Record(Data Transfer Object)
+- Record(Data Transfer Object) d1
 - EasyRandom (testImplementation)
 - UseCase Layer
 - Service Layer & Read/Write Seperate
@@ -15,7 +15,7 @@
 - PageAble
 - PageRequest
 - FanOut Model - Push&Pull
-- Lock (Pessimistic Lock)
+- Lock (Pessimistic Lock & Optimistic Lock)
 
 # Reference
 
