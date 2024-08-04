@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.board.boardserver.mapper.PostMapper">
+
+    <insert id="register" parameterType="com.board.boardserver.dto.PostDTO">
+        INSERT INTO post (id, name, is_admin, contents, create_time, views, category_id, user_id, filed_id, update_time)
+        VALUES (#{id}, #{name}, #{isAdmin}, #{contents}, #{createTime}, #{views}, #{categoryId}, #{userId}, #{filedId},
+        #{updateTime})
+    </insert>
+
+    <select id="getMyPosts" parameterType="int" resultType="com.board.boardserver.dto.PostDTO">
+        SELECT id, name, is_admin, contents, create_time, views, category_id, user_id, filed_id, update_time
+        FROM post
+        WHERE id = #{id}
+    </select>
+
+    <update id="updatePosts" parameterType="com.board.boardserver.dto.PostDTO">
+        UPDATE post
+        SET name = #{name},
+        is_admin = #{isAdmin},
+        contents = #{contents},
+        create_time = #{createTime},
+        views = #{views},
+        category_id = #{categoryId},
+        user_id = #{userId},
+        filed_id = #{filedId},
+        update_time = #{updateTime}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deletePosts" parameterType="int">
+        DELETE FROM post
+        WHERE id = #{id}
+    </delete>
+
+
+</mapper>
