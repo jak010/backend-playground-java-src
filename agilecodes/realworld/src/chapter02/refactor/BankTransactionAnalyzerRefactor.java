@@ -11,7 +11,7 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BankTransactionAnalyzerSimpleRefactor {
+public class BankTransactionAnalyzerRefactor {
 
     private static final String RESOURCES = "/Users/jako/private/git-repo/backend-playground-java-src/agilecodes/realworld/src/chapter02/resource/bank-data-simple.csv";
 
