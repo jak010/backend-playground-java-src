@@ -9,6 +9,9 @@ import java.nio.file.StandardOpenOption;
 import java.time.LocalDate;
 import java.util.Collections;
 
+/**
+ * 조건문에서 NullPointerException 피하기
+ */
 public class LogBackSolution {
 
 
