@@ -1,10 +1,11 @@
-package chapter2;
+package chapter2.example;
 
 import java.util.*;
 
 public class AssignService {
 
     /**
+     * (Service Layer Pattern)
      * 배정 비즈니스 로직
      * 1. 30세 이상인 고객 추출
      * 2. 나이를 오름차순으로 정렬
