@@ -1,6 +1,5 @@
 package chapter2.srp;
 
-import chapter2.srp.Customer;
 import chapter2.example.Surveyor;
 
 /**
