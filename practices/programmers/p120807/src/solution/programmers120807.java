@@ -1,3 +1,5 @@
+package solution;
+
 public class programmers120807 {
 
     public int solution(int num1, int num2) {
