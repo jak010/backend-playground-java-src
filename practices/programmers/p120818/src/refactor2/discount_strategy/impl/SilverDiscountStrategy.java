@@ -5,7 +5,7 @@ import refactor2.discount_strategy.threadhold.DiscountThreadHold;
 
 public class SilverDiscountStrategy extends DiscountThreadHold implements DiscountStrategy {
 
-    SilverDiscountStrategy() {
+    public SilverDiscountStrategy() {
         this.discountRate = 0.90;
         this.minThreadHold = 300_000;
         this.maxThreadHold = 500_000;

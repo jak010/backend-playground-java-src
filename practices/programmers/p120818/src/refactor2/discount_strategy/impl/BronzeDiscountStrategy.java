@@ -7,7 +7,7 @@ import refactor2.discount_strategy.DiscountStrategy;
 
 public class BronzeDiscountStrategy extends DiscountThreadHold implements DiscountStrategy {
 
-    BronzeDiscountStrategy() {
+    public BronzeDiscountStrategy() {
         this.discountRate = 0.95;
         this.maxThreadHold = 300_000;
         this.minThreadHold = 100_000;

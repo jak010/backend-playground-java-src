@@ -6,7 +6,7 @@ import refactor2.discount_strategy.threadhold.DiscountThreadHold;
 public class GoldDiscountStrategy extends DiscountThreadHold implements DiscountStrategy {
 
 
-    GoldDiscountStrategy() {
+    public GoldDiscountStrategy() {
         this.discountRate = 0.80;
         this.minThreadHold = 500_000;
 
