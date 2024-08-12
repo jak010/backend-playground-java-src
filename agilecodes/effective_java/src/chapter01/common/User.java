@@ -1,4 +1,4 @@
-package common;
+package chapter01.common;
 
 
 public interface User {

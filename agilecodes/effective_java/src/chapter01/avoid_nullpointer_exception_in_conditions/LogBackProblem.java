@@ -1,4 +1,4 @@
-package avoid_nullpointer_exception_in_conditions;
+package chapter01.avoid_nullpointer_exception_in_conditions;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

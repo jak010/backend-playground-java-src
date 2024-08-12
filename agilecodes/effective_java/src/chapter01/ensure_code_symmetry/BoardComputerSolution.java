@@ -1,12 +1,14 @@
-package ensure_code_symmetry;
+package chapter01.ensure_code_symmetry;
 
-import common.CruiseControl;
-import common.User;
+import chapter01.common.CruiseControl;
+import chapter01.common.User;
 
 import java.util.Objects;
 
-
-public class BaordComputerProblem {
+/**
+ * 코드 대칭 이루기 - 52page
+ */
+public class BoardComputerSolution {
 
     CruiseControl cruiseControl;
 
@@ -15,11 +17,17 @@ public class BaordComputerProblem {
 
         if (user.isUnknown()) {
             cruiseControl.logUnauthorizedAccessAttempt();
-        } else if (user.isAstronaut()) {
+            return;
+        }
+
+
+        if (user.isAstronaut()) {
             cruiseControl.grantAccess(user);
         } else if (user.isCommander()) {
             cruiseControl.grantAccess(user);
             cruiseControl.grantAdminAccess(user);
         }
     }
+
+
 }

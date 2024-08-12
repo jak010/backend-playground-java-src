@@ -1,8 +1,8 @@
-package avoid_negations;
+package chapter01.avoid_negations;
 
-import common.Microscope;
-import common.Result;
-import common.Sample;
+import chapter01.common.Microscope;
+import chapter01.common.Result;
+import chapter01.common.Sample;
 
 /**
  * 부정 피하기 - 36page

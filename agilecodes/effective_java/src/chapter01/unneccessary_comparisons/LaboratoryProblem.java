@@ -1,9 +1,9 @@
-package unneccessary_comparisons;
+package chapter01.unneccessary_comparisons;
 
 
-import common.Microscope;
-import common.Result;
-import common.Sample;
+import chapter01.common.Microscope;
+import chapter01.common.Result;
+import chapter01.common.Sample;
 
 /**
  * Effective Java - 33 page, 쓸모없는 비교 피하기
