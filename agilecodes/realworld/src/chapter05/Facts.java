@@ -11,6 +11,10 @@ public class Facts {
         return this.facts.get(name);
     }
 
+    public void setFacts(final String name, final String value) {
+        this.facts.put(name, value);
+    }
+
     public void addFact(final String name, final String value) {
         this.facts.put(name, value);
     }

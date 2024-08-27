@@ -50,5 +50,6 @@
     </orderEntry>
     <orderEntry type="library" name="Gradle: org.mockito:mockito-junit-jupiter:5.11.0" level="project" />
     <orderEntry type="library" name="mockito.core" level="project" />
+    <orderEntry type="library" name="mockito.all" level="project" />
   </component>
 </module>
