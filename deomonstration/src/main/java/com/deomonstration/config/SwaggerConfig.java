@@ -1,0 +1,25 @@
+package com.deomonstration.config;
+
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
+import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@RequiredArgsConstructor
+public class SwaggerConfig {
+
+
+    @Bean
+    public OpenAPI openAPI() {
+        Info info = new Info()
+                .title("Hello")
+                .version("Hello")
+                .description("Hello");
+
+        return new OpenAPI().info(info);
+    }
+
+
+}
