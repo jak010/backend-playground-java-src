@@ -1,9 +1,9 @@
 package com.deomonstration.deomonstration.controller;
 
+import com.deomonstration.deomonstration.dto.SaveData;
 import com.deomonstration.deomonstration.service.ExampleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.tags.Param;
 
 @RestController
 @RequestMapping("/")
@@ -12,7 +12,7 @@ public class ExampleController {
 
     final private ExampleService exampleService;
 
-    @GetMapping("/hello")
+    @GetMapping("/index")
     public String index() {
         return "Hello World";
     }
@@ -32,7 +32,6 @@ public class ExampleController {
     ) {
         exampleService.setKey(saveData.getKey(), saveData.getValue());
         return "complete";
-
     }
 
 }
