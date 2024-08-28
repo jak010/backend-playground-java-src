@@ -3,14 +3,14 @@ package chapter05;
 public class RuleBuilder {
 
     private Condition condition;
-    private Action action;
+    private ActionV1 action;
 
     public RuleBuilder when(final Condition condition) {
         this.condition = condition;
         return this;
     }
 
-    public RuleBuilder then(final Action action) {
+    public RuleBuilder then(final ActionV1 action) {
         this.action = action;
         return this;
     }

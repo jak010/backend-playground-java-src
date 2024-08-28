@@ -22,7 +22,7 @@ public class InspectorTest {
         facts.setFacts("jobTitle", "CEO");
 
         final ConditionalAction conditionalAction = new JobTitleCondition();
-        final Inspector inspector = new Inspector(conditionalAction);
+        final Inspector inspector = new Inspector((List<ConditionalAction>) conditionalAction);
 
         final List<Report> reportList = inspector.inspect(facts);
 

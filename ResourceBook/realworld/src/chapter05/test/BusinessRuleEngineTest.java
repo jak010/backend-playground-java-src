@@ -19,10 +19,10 @@ public class BusinessRuleEngineTest {
     public void shouldAddTwoActions() {
         final BusinessRuleEngine businessRuleEngine = new BusinessRuleEngine();
 
-        businessRuleEngine.addAction(() -> {
-        });
-        businessRuleEngine.addAction(() -> {
-        });
+//        businessRuleEngine.addAction(() -> {
+//        });
+//        businessRuleEngine.addAction(() -> {
+//        });
 
         assertEquals(2, businessRuleEngine.count());
 
