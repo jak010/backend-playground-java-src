@@ -1,4 +1,7 @@
 package chapter06;
 
-public class RecevierEndPoint {
+public interface RecevierEndPoint {
+
+    void onTwoot(Twoot Twoot)
+
 }
